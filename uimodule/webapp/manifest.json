@@ -29,7 +29,7 @@
   "sap.ui5": {
     "flexEnabled": true,
     "rootView": {
-      "viewName": "com.te.pollutionTracker.view.MainView",
+      "viewName": "com.te.pollutionTracker.view.Main",
       "type": "XML",
       "async": true,
       "id": "idAppControl"
@@ -63,26 +63,54 @@
     },
     "routing": {
       "config": {
-        "routerClass": "sap.m.routing.Router",
+        "routerClass": "sap.f.routing.Router",
         "viewType": "XML",
         "viewPath": "com.te.pollutionTracker.view",
-        "controlId": "idAppControl",
-        "controlAggregation": "pages",
+        "controlId": "pollution",
+        "transition": "slide",
+        "bypassed": {
+        },
         "async": true
       },
       "routes": [
         {
-          "name": "RouteMainView",
-          "pattern": "RouteMainView",
-          "target": ["TargetMainView"]
+          "pattern": ":layout:",
+          "name": "master",
+          "target": [
+            "master",
+            "detail"
+          ]
+        },
+        {
+          "pattern": "detail/{country}/{layout}",
+          "name": "detail",
+          "target": [
+            "master",
+            "detail"
+          ]
+        },
+        {
+          "pattern": "detail/{country}/state/{state}/{layout}",
+          "name": "city",
+          "target": [
+            "master",
+            "detail",
+            "city"
+          ]
         }
       ],
       "targets": {
-        "TargetMainView": {
-          "viewType": "XML",
-          "viewLevel": 1,
-          "viewId": "idAppControl",
-          "viewName": "MainView"
+        "master": {
+          "viewName": "Master",
+          "controlAggregation": "beginColumnPages"
+        },
+        "detail": {
+          "viewName": "Detail",
+          "controlAggregation": "midColumnPages"
+        },
+        "city": {
+          "viewName": "City",
+          "controlAggregation": "endColumnPages"
         }
       }
     }

@@ -4,7 +4,7 @@ sap.ui.require([
 ], function (Opa5, Press) {
   "use strict";
 
-  var sViewName = "com.te.pollutionTracker.view.MainView";
+  var sViewName = "com.te.pollutionTracker.view.Main";
 
   Opa5.createPageObjects({
     onTheMainPage: {

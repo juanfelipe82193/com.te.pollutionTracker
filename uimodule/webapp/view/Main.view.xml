@@ -1,0 +1,15 @@
+ <mvc:View 
+  xmlns:f="sap.f" 
+  controllerName="com.te.pollutionTracker.controller.Main"
+  displayBlock="true"
+  xmlns="sap.m"
+  xmlns:mvc="sap.ui.core.mvc"
+  height="100%">
+  <f:FlexibleColumnLayout 
+    id="pollution" 
+    backgroundDesign="Solid"
+    stateChange="onStateChanged"
+    layout="{/layout}">
+    
+  </f:FlexibleColumnLayout>
+</mvc:View>
